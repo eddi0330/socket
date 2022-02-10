@@ -15,13 +15,13 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
         print("Connessione da ", address)
         while True:
             data=cs.recv(1024)
-            if not data: 
+            if not data: #se non riceviamo data fermiamo il programma
                 break
             data=data.decode()
             data=json.loads(data)
-            messaggio=data['messaggio']
+            messaggio=data['messaggio'] #traduciamo il messaggio
             
             contatore+=1
-            ris=str(contatore)+") "+messaggio
+            ris=str(contatore)+") "+messaggio #contatore dei messaggi
             ris=str(ris)
             cs.sendall(ris.encode("UTF-8"))
