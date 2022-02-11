@@ -55,12 +55,12 @@ def ricevi_connessioni(sock_listen):
             print("Il thread non si avvia")
             sock_listen.close()
 
-def avvia_server(SERVER_ADDRESS,SERVER_PORT):
+def avvia_server(indirizzo,porta):
     sock_listen=socket.socket()
     sock_listen.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock_listen.bind((SERVER_ADDRESS, SERVER_PORT))
+    sock_listen.bind((indirizzo, porta))
     sock_listen.listen(5)
-    print("Server in ascolto su %s." % str((SERVER_ADDRESS, SERVER_PORT)))
+    print("Server in ascolto su %s." % str((indirizzo, porta)))
     ricevi_connessioni(sock_listen)
 
 if __name__=='__main__':
