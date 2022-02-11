@@ -21,7 +21,7 @@ def invia_comandi(sock_service):
         data=sock_service.recv(1024)
         print("Risultato: ",data.decode())
 
-def connessione_server(address,port):
+def connessione_server(SERVER_ADDRESS,SERVER_PORT):
     sock_service = socket.socket()
     sock_service.connect((SERVER_ADDRESS, SERVER_PORT))
     print("Connesso a "+ str((SERVER_ADDRESS, SERVER_PORT)))
