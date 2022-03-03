@@ -61,9 +61,9 @@ if __name__ == '__main__':
         t=Thread(target=genera_richieste,args=(NUM_WORKERS,SERVER_ADDRESS,SERVER_PORT))   #la i indica il numero delle volte che è già stato ripetuto il ciclo
         listaT.append(t)
     # 5 avvio tutti i thread
-    [th.start() for th in listaT]
+    [th.start() for th in listaT] #con questo for gli diamo il comando th.start() per ogni elemento della lista
     # 6 aspetto la fine di tutti i thread 
-    [th.join() for th in listaT]
+    [th.join() for th in listaT] #con questo for gli diamo il comando th.join() per ogni elemento della lista
     end_time=time.time()
     print("Total THREADS time= ", end_time - start_time)
 
@@ -72,8 +72,8 @@ if __name__ == '__main__':
     # 7 ciclo per chiamare NUM_WORKERS volte la funzione genera richieste tramite l'avvio di un processo al quale passo i parametri args=(num,SERVER_ADDRESS, SERVER_PORT,)
     # ad ogni iterazione appendo il thread creato alla lista threads
     for i in range(NUM_WORKERS):
-        p=multiprocessing.Process(target=genera_richieste,args=(NUM_WORKERS, SERVER_ADDRESS, SERVER_PORT))
-        process.append(p)
+        p=multiprocessing.Process(target=genera_richieste,args=(NUM_WORKERS, SERVER_ADDRESS, SERVER_PORT)) #creiamo i process
+        process.append(p) #aggiungiamo il process alla lista di process
     # 8 avvio tutti i processi
     [p.start() for p in process]
     # 9 aspetto la fine di tutti i processi 
